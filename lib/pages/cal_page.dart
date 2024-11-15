@@ -29,13 +29,23 @@ class _CalPageState extends State<CalPage> {
         child: Column(
           children: [
             Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text('จำนวนที่จ่าย $cash'),
-                Text('ดอกเบี้ย $interest %'),
                 Text(
-                    'สรุป ${(total1 = (cash * (interest / 100) * day) / year)}'),
+                  'ยอดที่ใช้จ่าย $cash',
+                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                ),
               ],
-            )
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'อัตราดอกเบี้ย $interest %',
+                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                ),
+              ],
+            ),
           ],
         ),
       ),
