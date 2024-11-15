@@ -17,6 +17,8 @@ class _CalPageState extends State<CalPage> {
   var total1 = 0.0;
   var cash2 = 7000;
   var total3 = 0;
+  final nameController = TextEditingController();
+  final surnameController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +28,7 @@ class _CalPageState extends State<CalPage> {
       ),
       backgroundColor: Colors.blueGrey,
       body: Container(
-        padding: EdgeInsets.fromLTRB(0, 40, 0, 0),
+        //padding: EdgeInsets.fromLTRB(0, 40, 0, 0),
         child: Center(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -81,4 +83,33 @@ class _CalPageState extends State<CalPage> {
       style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
     );
   }
+
+  Widget buildTextField() => Column(
+        children: [
+          TextField(
+            decoration: const InputDecoration(labelText: 'ราคาสินค้า'),
+            maxLength: 50,
+            keyboardType: TextInputType.name,
+            controller: nameController,
+          ),
+          TextField(
+            decoration: const InputDecoration(labelText: 'นามสกุล'),
+            maxLength: 50,
+            keyboardType: TextInputType.name,
+            controller: surnameController,
+          ),
+          TextField(
+            decoration: const InputDecoration(labelText: 'นามสกุล'),
+            maxLength: 50,
+            keyboardType: TextInputType.name,
+            controller: surnameController,
+          ),
+          TextField(
+            decoration: const InputDecoration(labelText: 'นามสกุล'),
+            maxLength: 50,
+            keyboardType: TextInputType.name,
+            controller: surnameController,
+          ),
+        ],
+      );
 }
