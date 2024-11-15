@@ -25,30 +25,60 @@ class _CalPageState extends State<CalPage> {
         title: Text('Cal'),
       ),
       backgroundColor: Colors.blueGrey,
-      body: Center(
-        child: Column(
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'ยอดที่ใช้จ่าย $cash',
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                ),
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'อัตราดอกเบี้ย $interest %',
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                ),
-              ],
-            ),
-          ],
+      body: Container(
+        padding: EdgeInsets.fromLTRB(0, 40, 0, 0),
+        child: Center(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'ยอดที่ใช้จ่าย $cash',
+                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                  ),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'อัตราดอกเบี้ย $interest %',
+                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                  ),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'จำนวนวันที่ใช้ไป $day วัน',
+                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 40,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  buildTotal(),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
+    );
+  }
+
+  Widget buildTotal() {
+    total1 = (cash * (interest / 100) * day) / year;
+    return Text(
+      'อัตราดอกเบี้ย $total1 บาท',
+      style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
     );
   }
 }
