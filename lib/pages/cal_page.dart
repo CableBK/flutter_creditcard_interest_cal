@@ -37,7 +37,7 @@ class _CalPageState extends State<CalPage> {
                 Expanded(child: buildCashField()),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Row(
@@ -45,45 +45,37 @@ class _CalPageState extends State<CalPage> {
                 Expanded(child: buildDayField()),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(
-                  'ยอดที่ใช้จ่าย $cash',
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                ElevatedButton(
+                  onPressed: () {},
+                  child: const Text('คำนวน'),
                 ),
               ],
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'อัตราดอกเบี้ย $interest %',
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                ),
-              ],
+            const SizedBox(
+              height: 20,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'จำนวนวันที่ใช้ไป $day วัน',
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                ),
-              ],
+            Text(
+              'ยอดที่ใช้จ่าย $cash',
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            ),
+            Text(
+              'อัตราดอกเบี้ย $interest %',
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            ),
+            Text(
+              'จำนวนวันที่ใช้ไป $day วัน',
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
             SizedBox(
               height: 40,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                buildTotal(),
-              ],
-            ),
+            buildTotal(),
           ],
         ),
       ),
@@ -112,8 +104,9 @@ class _CalPageState extends State<CalPage> {
 
   Widget buildTotal() {
     total1 = (cash * (interest / 100) * day) / year;
+    String formattedTotal1 = total1.toStringAsFixed(2);
     return Text(
-      'อัตราดอกเบี้ย $total1 บาท',
+      'อัตราดอกเบี้ย $formattedTotal1 บาท',
       style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
     );
   }
