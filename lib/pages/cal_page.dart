@@ -10,15 +10,27 @@ class CalPage extends StatefulWidget {
 }
 
 class _CalPageState extends State<CalPage> {
-  var cash = 3000;
+  var cash = 0;
   var day = 9;
   var interest = 16;
   var year = 365;
   var total1 = 0.0;
   var cash2 = 7000;
   var total3 = 0;
+
+  String cashStr = '';
   final cashController = TextEditingController();
   final dayController = TextEditingController();
+
+  void _savecashData() {
+    setState(
+      () {
+        cashStr = cashController
+            .text;
+            cash = int.parse(cashStr); // Assign the value from the controller to the variable
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +64,9 @@ class _CalPageState extends State<CalPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    _savecashData();
+                  },
                   child: const Text('คำนวน'),
                 ),
               ],
