@@ -17,6 +17,8 @@ class _CalPageState extends State<CalPage> {
   var total1 = 0.0;
   var cash2 = 7000;
   var total3 = 0;
+  final cashController = TextEditingController();
+  final dayController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -24,52 +26,65 @@ class _CalPageState extends State<CalPage> {
       appBar: AppBar(
         title: Text('Cal'),
       ),
-      backgroundColor: Colors.blueGrey,
+      backgroundColor: Color(0xFF15919B),
       body: Container(
         padding: EdgeInsets.fromLTRB(0, 40, 0, 0),
-        child: Center(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    'ยอดที่ใช้จ่าย $cash',
-                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                  ),
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    'อัตราดอกเบี้ย $interest %',
-                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                  ),
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    'จำนวนวันที่ใช้ไป $day วัน',
-                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: 40,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  buildTotal(),
-                ],
-              ),
-            ],
-          ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              children: [
+                Expanded(child: buildTextField()),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'ยอดที่ใช้จ่าย $cash',
+                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'อัตราดอกเบี้ย $interest %',
+                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'จำนวนวันที่ใช้ไป $day วัน',
+                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 40,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                buildTotal(),
+              ],
+            ),
+          ],
         ),
+      ),
+    );
+  }
+
+  Widget buildTextField() {
+    return TextField(
+      controller: cashController,
+      decoration: InputDecoration(
+        border: OutlineInputBorder(),
+        labelText: 'Cash',
       ),
     );
   }
