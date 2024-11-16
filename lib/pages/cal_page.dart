@@ -11,7 +11,7 @@ class CalPage extends StatefulWidget {
 
 class _CalPageState extends State<CalPage> {
   var cash = 0;
-  var day = 9;
+  var day = 0;
   var interest = 16;
   var year = 365;
   var total1 = 0.0;
@@ -19,15 +19,27 @@ class _CalPageState extends State<CalPage> {
   var total3 = 0;
 
   String cashStr = '';
+  String dayStr = '';
+
   final cashController = TextEditingController();
   final dayController = TextEditingController();
 
   void _savecashData() {
     setState(
       () {
-        cashStr = cashController
-            .text;
-            cash = int.parse(cashStr); // Assign the value from the controller to the variable
+        cashStr = cashController.text;
+        cash = int.parse(
+            cashStr); // Assign the value from the controller to the variable
+      },
+    );
+  }
+
+  void _savedayData() {
+    setState(
+      () {
+        dayStr = dayController.text;
+        day = int.parse(
+            dayStr); // Assign the value from the controller to the variable
       },
     );
   }
@@ -64,8 +76,13 @@ class _CalPageState extends State<CalPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Theme.of(context).colorScheme.primary,
+                    foregroundColor: Theme.of(context).colorScheme.onPrimary,
+                  ),
                   onPressed: () {
                     _savecashData();
+                    _savedayData();
                   },
                   child: const Text('คำนวน'),
                 ),
@@ -108,7 +125,7 @@ class _CalPageState extends State<CalPage> {
 
   Widget buildDayField() {
     return TextField(
-      controller: cashController,
+      controller: dayController,
       decoration: InputDecoration(
         border: OutlineInputBorder(),
         labelText: 'Day',
