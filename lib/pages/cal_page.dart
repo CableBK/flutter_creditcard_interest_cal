@@ -28,14 +28,25 @@ class _CalPageState extends State<CalPage> {
       ),
       backgroundColor: Color(0xFF15919B),
       body: Container(
-        padding: EdgeInsets.fromLTRB(0, 40, 0, 0),
+        padding: EdgeInsets.fromLTRB(10, 40, 10, 0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(
               children: [
-                Expanded(child: buildTextField()),
+                Expanded(child: buildCashField()),
               ],
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Row(
+              children: [
+                Expanded(child: buildDayField()),
+              ],
+            ),
+            SizedBox(
+              height: 20,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -79,12 +90,22 @@ class _CalPageState extends State<CalPage> {
     );
   }
 
-  Widget buildTextField() {
+  Widget buildCashField() {
     return TextField(
       controller: cashController,
       decoration: InputDecoration(
         border: OutlineInputBorder(),
         labelText: 'Cash',
+      ),
+    );
+  }
+
+  Widget buildDayField() {
+    return TextField(
+      controller: cashController,
+      decoration: InputDecoration(
+        border: OutlineInputBorder(),
+        labelText: 'Day',
       ),
     );
   }
