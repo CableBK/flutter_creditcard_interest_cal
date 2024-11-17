@@ -19,9 +19,11 @@ class _CalPageState extends State<CalPage> {
   var total3 = 0;
 
   String cashStr = '';
+  String intStr = '';
   String dayStr = '';
 
   final cashController = TextEditingController();
+  final intController = TextEditingController();
   final dayController = TextEditingController();
 
   void _savecashData() {
@@ -40,6 +42,16 @@ class _CalPageState extends State<CalPage> {
         dayStr = dayController.text;
         day = int.parse(
             dayStr); // Assign the value from the controller to the variable
+      },
+    );
+  }
+
+  void _saveintData() {
+    setState(
+      () {
+        intStr = intController.text;
+        interest = int.parse(
+            intStr); // Assign the value from the controller to the variable
       },
     );
   }
@@ -66,6 +78,14 @@ class _CalPageState extends State<CalPage> {
             ),
             Row(
               children: [
+                Expanded(child: buildInterestField()),
+              ],
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            Row(
+              children: [
                 Expanded(child: buildDayField()),
               ],
             ),
@@ -82,6 +102,7 @@ class _CalPageState extends State<CalPage> {
                   ),
                   onPressed: () {
                     _savecashData();
+                    _saveintData();
                     _savedayData();
                   },
                   child: const Text(
@@ -151,7 +172,17 @@ class _CalPageState extends State<CalPage> {
       controller: cashController,
       decoration: InputDecoration(
         border: OutlineInputBorder(),
-        labelText: 'Cash',
+        labelText: 'จำนวนยอดที่ใช้ไป',
+      ),
+    );
+  }
+
+  Widget buildInterestField() {
+    return TextField(
+      controller: intController,
+      decoration: InputDecoration(
+        border: OutlineInputBorder(),
+        labelText: 'ดอกเบี้ย',
       ),
     );
   }
@@ -161,7 +192,7 @@ class _CalPageState extends State<CalPage> {
       controller: dayController,
       decoration: InputDecoration(
         border: OutlineInputBorder(),
-        labelText: 'Day',
+        labelText: 'จำนวนวันตั้งแต่ใช้ยอด',
       ),
     );
   }
