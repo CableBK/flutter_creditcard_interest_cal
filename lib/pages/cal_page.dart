@@ -50,7 +50,7 @@ class _CalPageState extends State<CalPage> {
       appBar: AppBar(
         title: Text('Cal'),
       ),
-      backgroundColor: Color(0xFF15919B),
+      backgroundColor: Color(0xFFF5F5F1),
       body: Container(
         padding: EdgeInsets.fromLTRB(10, 40, 10, 0),
         child: Column(
@@ -77,14 +77,20 @@ class _CalPageState extends State<CalPage> {
               children: [
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Theme.of(context).colorScheme.primary,
-                    foregroundColor: Theme.of(context).colorScheme.onPrimary,
+                    backgroundColor: Color(0xFFB81D24),
+                    foregroundColor: Color(0xFF000000),
                   ),
                   onPressed: () {
                     _savecashData();
                     _savedayData();
                   },
-                  child: const Text('คำนวน'),
+                  child: const Text(
+                    'คำนวน',
+                    style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Color(0xFFF5F5F1)),
+                  ),
                 ),
               ],
             ),
