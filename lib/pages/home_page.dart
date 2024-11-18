@@ -25,6 +25,7 @@ class _HomePageState extends State<HomePage> {
             color: Colors.white,
             activeColor: Colors.white,
             gap: 8,
+
 /*             onTabChange: (index) {
               if (index == 0) {
 
@@ -43,8 +44,8 @@ class _HomePageState extends State<HomePage> {
                 text: 'หน้าแรก',
               ),
               GButton(
-                icon: IconlyLight.send,
-                text: 'NULL',
+                icon: IconlyLight.calendar,
+                text: 'คำนวน',
               ),
               GButton(
                 icon: IconlyLight.search,
