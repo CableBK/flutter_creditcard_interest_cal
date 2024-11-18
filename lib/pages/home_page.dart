@@ -25,18 +25,13 @@ class _HomePageState extends State<HomePage> {
             color: Colors.white,
             activeColor: Colors.white,
             gap: 8,
-
-/*             onTabChange: (index) {
-              if (index == 0) {
-
-              } else if (condition2) {
-                // statement 2
-              } else if (condition3) {
-                // statement 3
-              } else {
-                // else statment
+            onTabChange: (index) {
+              switch (index) {
+                case 0:
+                  break;
+                default:
               }
-            }, */
+            },
             padding: EdgeInsets.all(18),
             tabs: const [
               GButton(

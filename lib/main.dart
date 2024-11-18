@@ -20,10 +20,35 @@ class MyApp extends StatelessWidget {
         "/search": (context) => const SearchPage(),
         "/setting": (context) => const SettingPage(),
       }, */
-      onGenerateRoute: (settings) {
-        return MaterialPageRoute(builder: (context) => const HomePage());
-      },
       initialRoute: "/",
+      onGenerateRoute: (settings) {
+        MaterialPageRoute? pageRoute;
+        final routeName = settings.name;
+
+        switch (routeName) {
+          case "/":
+            pageRoute =
+                MaterialPageRoute(builder: (context) => const HomePage());
+            break;
+          case "/cal":
+            pageRoute =
+                MaterialPageRoute(builder: (context) => const CalPage());
+            break;
+          case "/search":
+            pageRoute =
+                MaterialPageRoute(builder: (context) => const SearchPage());
+            break;
+          case "/settings":
+            pageRoute =
+                MaterialPageRoute(builder: (context) => const SettingPage());
+            break;
+          default:
+            pageRoute =
+                MaterialPageRoute(builder: (context) => const HomePage());
+        }
+        return pageRoute;
+      },
+
       title: 'Credit card',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
