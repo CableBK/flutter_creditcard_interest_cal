@@ -59,9 +59,6 @@ class _CalPageState extends State<CalPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-/*       appBar: AppBar(
-        title: Text('Cal'),
-      ), */
       backgroundColor: Color(0xFFF5F5F1),
       body: Container(
         padding: EdgeInsets.fromLTRB(10, 40, 10, 0),

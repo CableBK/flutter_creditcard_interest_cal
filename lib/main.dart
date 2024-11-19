@@ -16,39 +16,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      /* routes: {
-        "/": (context) => const HomePage(),
-        "/cal": (context) => const CalPage(),
-        "/search": (context) => const SearchPage(),
-        "/setting": (context) => const SettingPage(),
-      }, */
-      /*  initialRoute: "/",
-      onGenerateRoute: (settings) {
-        MaterialPageRoute? pageRoute;
-        final routeName = settings.name;
-
-        switch (routeName) {
-          case "/":
-            pageRoute =
-                MaterialPageRoute(builder: (context) => const HomePage());
-          case "/cal":
-            pageRoute =
-                MaterialPageRoute(builder: (context) => const CalPage());
-            break;
-          case "/search":
-            pageRoute =
-                MaterialPageRoute(builder: (context) => const SearchPage());
-            break;
-          case "/settings":
-            pageRoute =
-                MaterialPageRoute(builder: (context) => const SettingPage());
-            break;
-          default:
-            pageRoute =
-                MaterialPageRoute(builder: (context) => const HomePage());
-        }
-        return pageRoute;
-      }, */
       home: MainPage(),
       title: 'Credit card',
       theme: ThemeData(
