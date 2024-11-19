@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_creditcard_interest_cal/pages/cal_page.dart';
 import 'package:flutter_creditcard_interest_cal/pages/home_page.dart';
+
+import 'package:flutter_creditcard_interest_cal/pages/main_page.dart';
 import 'package:flutter_creditcard_interest_cal/pages/search_page.dart';
 import 'package:flutter_creditcard_interest_cal/pages/setting_page.dart';
 
@@ -20,7 +22,7 @@ class MyApp extends StatelessWidget {
         "/search": (context) => const SearchPage(),
         "/setting": (context) => const SettingPage(),
       }, */
-      initialRoute: "/",
+      /*  initialRoute: "/",
       onGenerateRoute: (settings) {
         MaterialPageRoute? pageRoute;
         final routeName = settings.name;
@@ -29,7 +31,6 @@ class MyApp extends StatelessWidget {
           case "/":
             pageRoute =
                 MaterialPageRoute(builder: (context) => const HomePage());
-            break;
           case "/cal":
             pageRoute =
                 MaterialPageRoute(builder: (context) => const CalPage());
@@ -47,8 +48,8 @@ class MyApp extends StatelessWidget {
                 MaterialPageRoute(builder: (context) => const HomePage());
         }
         return pageRoute;
-      },
-
+      }, */
+      home: MainPage(),
       title: 'Credit card',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
