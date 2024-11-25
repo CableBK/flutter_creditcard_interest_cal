@@ -56,18 +56,18 @@ class _MainPageState extends State<MainPage> {
               duration: Duration(milliseconds: 400),
               tabBackgroundColor: Colors.grey[100]!,
               color: Colors.black,
-              tabs: [
+              tabs: const [
                 GButton(
                   icon: IconlyLight.home,
                   text: 'หน้าแรก',
                 ),
                 GButton(
-                  icon: IconlyLight.calendar,
+                  icon: IconlyLight.document,
                   text: 'คำนวน',
                 ),
                 GButton(
-                  icon: IconlyLight.search,
-                  text: 'ค้นหา',
+                  icon: IconlyLight.chart,
+                  text: 'สรุป',
                 ),
                 GButton(
                   icon: IconlyLight.setting,
